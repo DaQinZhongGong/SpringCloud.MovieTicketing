@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: movieticketing-discovery-eureka
+---
+security:
+  basic:
+    enabled: true               # 开启基于HTTP basic的认证
+  user:
+    name: libingbin2015@aliyun.com                  # 配置登录的账号是user
+    password: libingbin2015@aliyun.com              # 配置登录的密码是password123
+---
+spring:
+  profiles: peer1                                 # 指定profile=peer1
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: peer1                               # 指定当profile=peer1时，主机名是peer1
+  client:
+    serviceUrl:
+      defaultZone: http://libingbin2015@aliyun.com:libingbin2015@aliyun.com@peer2:8762/eureka/      # 将自己注册到peer2这个Eureka上面去
+---
+spring:
+  profiles: peer2
+server:
+  port: 8762
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    serviceUrl:
+      defaultZone: http://libingbin2015@aliyun.com:libingbin2015@aliyun.com@peer1:8761/eureka/
+
+# 参考文档：https://my.oschina.net/u/3375733/blog/1512406
+# 参考文档：http://projects.spring.io/spring-cloud/docs/1.0.3/spring-cloud.html#_standalone_mode

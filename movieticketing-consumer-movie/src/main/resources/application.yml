@@ -3,9 +3,9 @@ server:
 spring:
   application:
     name: movieticketing-consumer-movie
-#eureka:
-# client:
-#    serviceUrl:
-#      defaultZone: http://localhost:8761/eureka/
-#  instance:
-#    prefer-ip-address: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://libingbin2015@aliyun.com:libingbin2015@aliyun.com@peer1:8761/eureka/,http://libingbin2015@aliyun.com:libingbin2015@aliyun.com@peer2:8762/eureka/
+  instance:
+    prefer-ip-address: true

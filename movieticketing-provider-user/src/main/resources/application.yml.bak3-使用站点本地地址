@@ -1,8 +1,11 @@
 server:
   port: 8000
 spring:
+  cloud:
+    inetutils:
+      useOnlySiteLocalInterfaces: true
   application:
-    name: movieticketing-provider-user
+    name: microservice-provider-user
   jpa:
     generate-ddl: false
     show-sql: true
@@ -18,14 +21,10 @@ logging:                                # 配置日志级别，让hibernate打�
     org.hibernate: INFO
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
     org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    org.springframework.cloud.commons.util.InetUtils: TRACE   # 开启这边的日志，可以打印出Spring查找网卡的过程
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://libingbin2015@aliyun.com:libingbin2015@aliyun.com@peer1:8761/eureka/,http://libingbin2015@aliyun.com:libingbin2015@aliyun.com@peer2:8762/eureka/
+      defaultZone: http://localhost:8761/eureka/
   instance:
     prefer-ip-address: true
-    metadata-map:
-      my-metadata: 我自定义的元数据       # 自定义的元数据，key/value都可以随便写。
-
-
-  #站点本地地址与链路本地地址：https://4sysops.com/archives/ipv6-tutorial-part-6-site-local-address-and-link-local-addresses/
