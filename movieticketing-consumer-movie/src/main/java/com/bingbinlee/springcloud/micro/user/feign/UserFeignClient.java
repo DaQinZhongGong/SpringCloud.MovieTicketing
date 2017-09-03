@@ -1,7 +1,7 @@
-package com.bingbinlee.springcloud.micro.feign;
+package com.bingbinlee.springcloud.micro.user.feign;
 
 
-import com.bingbinlee.springcloud.micro.entity.User;
+import com.bingbinlee.springcloud.micro.user.entity.User;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 

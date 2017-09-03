@@ -1,11 +1,18 @@
 server:
   port: 8010
+
 spring:
   application:
     name: movieticketing-consumer-movie
+
 eureka:
   client:
     serviceUrl:
       defaultZone: http://libingbin2015@aliyun.com:libingbin2015@aliyun.com@peer1:8761/eureka/,http://libingbin2015@aliyun.com:libingbin2015@aliyun.com@peer2:8762/eureka/
   instance:
     prefer-ip-address: true
+
+#使用属性自定义的方式配置Ribbon
+#microservice-provider-user:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule

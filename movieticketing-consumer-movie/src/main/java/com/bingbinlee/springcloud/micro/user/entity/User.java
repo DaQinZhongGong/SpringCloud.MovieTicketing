@@ -1,4 +1,4 @@
-package com.bingbinlee.springcloud.micro.entity;
+package com.bingbinlee.springcloud.micro.user.entity;
 
 import java.math.BigDecimal;
 
