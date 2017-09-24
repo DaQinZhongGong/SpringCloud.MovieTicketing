@@ -16,3 +16,8 @@ eureka:
 #microservice-provider-user:
 #  ribbon:
 #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+#使用属性自定义的方式配置Feign日志
+#logging:
+#  level:
+#    com.bingbinlee.springcloud.micro.user.feign.UserFeignClientLogging: DEBUG # 将Feign接口的日志级别设置成DEBUG，因为Feign的Logger.Level只对DEBUG作出响应。

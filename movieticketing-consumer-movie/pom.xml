@@ -31,11 +31,18 @@
       <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
 
-    <!-- 该依赖已经包含了spring-cloud-starter-ribbon，无须再次引入 -->
+    <!-- 该依赖已经包含了spring-cloud-starter-ribbon，无须再次引入ribbon依赖 -->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-eureka</artifactId>
     </dependency>
+
+    <!-- 添加Feign的依赖 -->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-feign</artifactId>
+    </dependency>
+
   </dependencies>
 
   <!-- 引入spring cloud的依赖 -->

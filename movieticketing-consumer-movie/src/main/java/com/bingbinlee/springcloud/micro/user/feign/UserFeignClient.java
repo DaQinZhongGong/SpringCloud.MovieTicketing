@@ -7,21 +7,25 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+/**
+ * 服务消费者-Feign接口
+ * @author libingbin2015@aliyun.com
+ */
 @FeignClient(name = "movieticketing-provider-user")
 public interface UserFeignClient {
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-  public User findById(@PathVariable("id") Long id);
+  User findById(@PathVariable("id") Long id);
 
   // 该请求不会成功
   @RequestMapping(value = "/get", method = RequestMethod.GET)
-  public User get0(User user);
+  User get0(User user);
 
   @RequestMapping(value = "/get", method = RequestMethod.GET)
-  public User get1(@RequestParam("id") Long id, @RequestParam("username") String username);
+  User get1(@RequestParam("id") Long id, @RequestParam("username") String username);
 
   @RequestMapping(value = "/get", method = RequestMethod.GET)
-  public User get2(@RequestParam Map<String, Object> map);
+  User get2(@RequestParam Map<String, Object> map);
 
   @RequestMapping(value = "/post", method = RequestMethod.POST)
-  public User post(@RequestBody User user);
+  User post(@RequestBody User user);
 }

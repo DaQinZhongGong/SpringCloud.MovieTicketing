@@ -18,7 +18,10 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ * 服务消费者
+ * @author libingbin2015@aliyun.com
+ */
 @RestController
 public class MovieController {
     private static final Logger LOGGER = LoggerFactory.getLogger(MovieController.class);

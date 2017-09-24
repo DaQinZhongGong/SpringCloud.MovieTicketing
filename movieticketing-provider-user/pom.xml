@@ -43,6 +43,13 @@
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-eureka</artifactId>
     </dependency>
+
+    <!-- 添加Spring Security的依赖 -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+
   </dependencies>
 
   <!-- 引入spring cloud的依赖 -->
