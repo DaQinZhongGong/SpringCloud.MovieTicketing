@@ -36,11 +36,18 @@
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-eureka</artifactId>
     </dependency>
+    <!-- 引入Eureka为了实现微服务的注册与发现；Ribbon为了客户端侧的负载均衡 -->
 
-    <!-- 添加Feign的依赖 -->
+    <!-- 添加Feign的依赖：为了实现声明式的API调用 -->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-feign</artifactId>
+    </dependency>
+
+    <!-- 添加Hystrix依赖：为了实现微服务的容错处理 -->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-hystrix</artifactId>
     </dependency>
 
   </dependencies>

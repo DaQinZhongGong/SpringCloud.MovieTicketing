@@ -1,0 +1,17 @@
+server:
+  port: 8031
+spring:
+  application:
+    name: movieticketing-hystrix-turbine
+eureka:
+  client:
+    service-url:
+      defaultZone: http://libingbin2015@aliyun.com:libingbin2015@aliyun.com@peer1:8761/eureka/,http://libingbin2015@aliyun.com:libingbin2015@aliyun.com@peer2:8762/eureka/
+  instance:
+    prefer-ip-address: true
+turbine:
+  appConfig: movieticketing-consumer-movie,movieticketing-provider-user
+  clusterNameExpression: "'default'"
+
+#http://localhost:8030/hystirx.stream
+#在上面的页面的URL一栏中填写http://localhost:8031/turbine.stream,随意定义一个Title并点击Monitor Stream

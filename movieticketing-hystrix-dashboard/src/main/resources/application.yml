@@ -1,0 +1,5 @@
+server:
+  port: 8030
+
+# http://localhost:8030/hystrix
+#

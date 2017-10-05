@@ -4,6 +4,7 @@ package com.bingbinlee.springcloud.micro.user.controller;
 import com.bingbinlee.springcloud.micro.user.entity.User;
 import com.bingbinlee.springcloud.micro.user.feign.UserFeignClient;
 import com.google.common.collect.Maps;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,10 +48,24 @@ public class MovieController {
     /**
      *  将请求地址改为http://movieticketing-provider-user/，movieticketing-provider-user是用户微服务的虚拟主机名（virtual host name），
      *  当Ribbon和Eureka配合使用，会自动将虚拟主机名映射成微服务的网络地址。
+     *  @HystrixCommand 的 fallbackMethod属性，指定回退方法是findByIdFallback(Long id)
      */
+    @HystrixCommand(fallbackMethod = "findByIdFallback")
     @GetMapping("/user/{id}")
     public User findById(@PathVariable Long id) {
         return this.restTemplate.getForObject("http://movieticketing-provider-user/" + id, User.class);
+    }
+
+    /**
+     * findById() 的容错默认回退方法
+     * @param id
+     * @return
+     */
+    public User findByIdFallback(Long id) {
+        User user = new User();
+        user.setId(-1L);
+        user.setName("默认用户");
+        return user;
     }
 
     /**
